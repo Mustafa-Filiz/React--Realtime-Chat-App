@@ -1,23 +1,23 @@
 import styled from "styled-components";
 
-export const SignInStyled = styled.div`
-  height: 100%;
+const SignInStyled = styled.div`
+  height: calc(100% - 3rem);
   width: 100%;
   background-color: #fff;
-  padding: 40px 60px;
+  padding: 20px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   h2 {
-    margin-bottom: ${({ theme }) => theme.sizes.xxlarge};
+    margin-bottom: ${({ theme }) => theme.sizes.xlarge};
   }
   & > button {
-    margin-bottom: ${({ theme }) => theme.sizes.xxlarge};
+    margin-bottom: ${({ theme }) => theme.sizes.xlarge};
   }
   .info {
     position: relative;
     width: 100%;
-    height: 20px;
+    margin-bottom: ${({ theme }) => theme.sizes.xlarge};
     .info-text-line {
       width: 100%;
       height: 1px;
@@ -34,11 +34,13 @@ export const SignInStyled = styled.div`
   }
   form {
     width: 100%;
-    height: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    & > * {
+      margin-bottom: ${({ theme }) => theme.sizes.xlarge};
+    }
   }
   .sign-up {
     width: 100%;
@@ -53,3 +55,5 @@ export const SignInStyled = styled.div`
     }
   }
 `;
+
+export default SignInStyled;

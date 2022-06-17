@@ -53,7 +53,7 @@ export const theme: Theme = {
         small: '5px',
         medium: '10px',
         large: '15px',
-        xlarge: '20px',
-        xxlarge: '4rem',
+        xlarge: '30px',
+        xxlarge: '3rem',
     }
 }
