@@ -1,4 +1,5 @@
 import { useState } from "react"
+import StyledDropdown from "./style"
 
 interface DropdownProps {
     open?: boolean
@@ -7,7 +8,7 @@ interface DropdownProps {
 function Dropdown({open}: DropdownProps) {
     const [isOpen, setIsOpen] = useState(open)
   return (
-    <div>Dropdown</div>
+    <StyledDropdown>Dropdown</StyledDropdown>
   )
 }
 

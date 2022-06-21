@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const SignInStyled = styled.div`
-  height: calc(100% - 3rem);
+  min-height: calc(100% - 3rem);
   width: 100%;
   background-color: #fff;
   padding: 20px 40px;

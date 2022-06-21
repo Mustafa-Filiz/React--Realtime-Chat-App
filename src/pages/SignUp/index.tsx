@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import SignUpStyled from "./style";
+import { signUp } from "../../firebase/firebaseAuth";
 
 const validationSchema = yup.object().shape({
   email: yup.string().email().required(),
@@ -18,9 +19,6 @@ const validationSchema = yup.object().shape({
     .required(),
   name: yup.string().required(),
   lastName: yup.string().required(),
-  createdOn: yup.date().default(function () {
-    return new Date();
-  }),
 });
 
 function SignUp() {
@@ -31,11 +29,14 @@ function SignUp() {
       passwordConfirmation: "",
       name: "",
       lastName: "",
-      createdOn: new Date(),
     },
     validationSchema,
-    onSubmit: (values) => {
+    onSubmit: (values, helpers) => {
       console.log(values);
+      const { email, password, name, lastName } = values;
+      const displayName = `${name} ${lastName}`
+      signUp(email, password, displayName);
+      helpers.resetForm();
     },
   });
   return (
@@ -49,7 +50,7 @@ function SignUp() {
         <p className="info-text">or sign up with email</p>
       </div>
       <form onSubmit={formik.handleSubmit}>
-      <Input
+        <Input
           name="name"
           inputType="text"
           placeholder="First Name"

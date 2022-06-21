@@ -5,8 +5,30 @@ import { BsKey } from "react-icons/bs";
 import Input from "../../components/Input";
 import { Link } from "react-router-dom";
 import SignInStyled from "./style";
+import * as yup from "yup";
+import { useFormik } from "formik";
+import { signIn } from "../../firebase/firebaseAuth";
+
+const validationSchema = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup.string().min(6).required(),
+});
 
 function SignIn() {
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema,
+    onSubmit: (values, helpers) => {
+      // console.log("🤖 ~ formikHelpers", helpers);
+      // console.log("🤖 ~ values", values);
+      const { email, password } = values;
+      signIn(email, password);
+      helpers.resetForm();
+    },
+  });
   return (
     <SignInStyled>
       <h2>Sign In</h2>
@@ -17,16 +39,22 @@ function SignIn() {
         <div className="info-text-line" />
         <p className="info-text">or sign in with email</p>
       </div>
-      <form>
+      <form onSubmit={formik.handleSubmit}>
         <Input
+          name="email"
           inputType="text"
           placeholder="Email"
           icon={<HiOutlineMail size={22} />}
+          onChange={formik.handleChange}
+          value={formik.values.email}
         />
         <Input
+          name="password"
           inputType="password"
           placeholder="Password"
           icon={<BsKey size={22} />}
+          onChange={formik.handleChange}
+          value={formik.values.password}
         />
         <Button color="darkGreen" size="medium">
           Sign in
