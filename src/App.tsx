@@ -1,16 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import "./App.css";
-import { useAppSelector } from "./app/hooks";
-import { user } from "./app/userSlice";
 import Header from "./components/Header";
+import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import PrivateRoute from "./router/PrivateRoute";
 import { theme } from "./utils/theme/theme";
 
 function App() {
-  const currentUser = useAppSelector(user);
-  console.log("🤖 ~ currentUser", currentUser)
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
@@ -18,7 +16,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/sign-up" element={<SignUp />} />
-            <Route path="/" element={<SignIn />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

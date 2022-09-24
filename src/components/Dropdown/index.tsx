@@ -1,15 +1,26 @@
-import { useState } from "react"
-import StyledDropdown from "./style"
+import { useEffect } from "react";
+import { useState } from "react";
+import StyledDropdown from "./style";
 
 interface DropdownProps {
-    open?: boolean
+  children: React.ReactNode;
+  open: boolean;
 }
 
-function Dropdown({open}: DropdownProps) {
-    const [isOpen, setIsOpen] = useState(open)
+function Dropdown({ children, open }: DropdownProps) {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsOpen(open);
+  }, [open]);
+
   return (
-    <StyledDropdown>Dropdown</StyledDropdown>
-  )
+    <StyledDropdown>
+      <div className="dropdown-trigger">{children}</div>
+
+      {isOpen && <div className="dropdown-layout"></div>}
+    </StyledDropdown>
+  );
 }
 
-export default Dropdown
+export default Dropdown;

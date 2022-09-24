@@ -1,9 +1,10 @@
 import logo from "../../assets/chit-chat-logo.png";
 import { HiUserCircle } from "react-icons/hi";
 import StyledHeader from "./style";
-
+import { useAppSelector } from "../../app/hooks";
 
 function Header() {
+  const user = useAppSelector((state) => state.user.user);
   return (
     <StyledHeader>
       <div className="app-logo">
@@ -11,9 +12,9 @@ function Header() {
         <h3>ChitChat</h3>
       </div>
       <div className="user-info">
-        <p>Mustafa Filiz</p>
+        <p>{user?.displayName}</p>
         <button className="avatar-wrapper">
-          <HiUserCircle className="avatar" size={28} />
+          {user?.photoURL ? <img src={user?.photoURL} alt="profile-pic" /> : <HiUserCircle className="avatar" size={28} />}
         </button>
       </div>
     </StyledHeader>

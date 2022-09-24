@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import SignInStyled from "./style";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import { signIn } from "../../firebase/firebaseAuth";
+import { useFirebaseHooks } from "../../firebase/firebaseAuthHooks";
 
 const validationSchema = yup.object().shape({
   email: yup.string().email().required(),
@@ -15,6 +15,8 @@ const validationSchema = yup.object().shape({
 });
 
 function SignIn() {
+  const {signIn} = useFirebaseHooks()
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -22,8 +24,6 @@ function SignIn() {
     },
     validationSchema,
     onSubmit: (values, helpers) => {
-      // console.log("🤖 ~ formikHelpers", helpers);
-      // console.log("🤖 ~ values", values);
       const { email, password } = values;
       signIn(email, password);
       helpers.resetForm();
