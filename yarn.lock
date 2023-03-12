@@ -2030,6 +2030,11 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
+"@remix-run/router@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.4.0.tgz#74935d538e4df8893e47831a7aea362f295bcd39"
+  integrity sha512-BJ9SxXux8zAg991UmT8slpwpsd31K1dHHbD3Ba4VzD+liLQ4WAMSxQp2d2ZPRPfN0jN2NPRowcSSoM7lCaF08Q==
+
 "@storybook/addon-actions@6.5.16", "@storybook/addon-actions@^6.5.16":
   version "6.5.16"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.5.16.tgz#2d7679f64899bef165a338582cb928102a09e364"
@@ -3154,6 +3159,11 @@
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.6.tgz#250a7b16c3b91f672a24552ec64678eeb1d3a08d"
   integrity sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==
+
+"@types/uuid@^9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-9.0.1.tgz#98586dc36aee8dacc98cc396dbca8d0429647aa6"
+  integrity sha512-rFT3ak0/2trgvp4yYZo5iKFEPsET7vKydKF+VRCxlQ9bpheehyAJH89dAkaLEq/j/RZXJIqcgsmPJKUP1Z28HA==
 
 "@types/webpack-env@^1.16.0":
   version "1.18.0"
@@ -8856,6 +8866,11 @@ pretty-hrtime@^1.0.3:
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
   integrity sha512-66hKPCr+72mlfiSjlEB1+45IjXSqvVAIy6mocupoww4tBFE9R9IhwwUGoI4G++Tc9Aq+2rxOt0RFU6gPcrte0A==
 
+primeflex@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/primeflex/-/primeflex-3.3.0.tgz#6c755230ddf30c8fffed9f817efed28d5fe2bdff"
+  integrity sha512-4hvyIO7lERN5bnyURn67Qpozghins8Jq/GSXO6tymc3oa2ADHWuiYBti8ZptPwHu+uD/HTEisS26NEmeIGfPZQ==
+
 primeicons@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-6.0.1.tgz#431fa7c79825934eefd62087d8e1faa6a9e376ad"
@@ -9205,6 +9220,21 @@ react-refresh@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.14.0.tgz#4e02825378a5f227079554d4284889354e5f553e"
   integrity sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==
+
+react-router-dom@^6.9.0:
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.9.0.tgz#dd8b4e461453bd4cad2e6404493d1a5b4bfea758"
+  integrity sha512-/seUAPY01VAuwkGyVBPCn1OXfVbaWGGu4QN9uj0kCPcTyNYgL1ldZpxZUpRU7BLheKQI4Twtl/OW2nHRF1u26Q==
+  dependencies:
+    "@remix-run/router" "1.4.0"
+    react-router "6.9.0"
+
+react-router@6.9.0:
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.9.0.tgz#0f503d9becbc62d9e4ddc0f9bd4026e0fd29fbf5"
+  integrity sha512-51lKevGNUHrt6kLuX3e/ihrXoXCa9ixY/nVWRLlob4r/l0f45x3SzBvYJe3ctleLUQQ5fVa4RGgJOTH7D9Umhw==
+  dependencies:
+    "@remix-run/router" "1.4.0"
 
 react-transition-group@^4.4.1:
   version "4.4.5"
@@ -10802,6 +10832,11 @@ uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
+
+uuid@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.0.tgz#592f550650024a38ceb0c562f2f6aa435761efb5"
+  integrity sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==
 
 v8-compile-cache@^2.0.3:
   version "2.3.0"
