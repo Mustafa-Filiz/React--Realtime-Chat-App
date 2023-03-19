@@ -24,6 +24,7 @@ const CCButton: FC<CCButtonProps> = ({
   tooltip,
   tooltipOptions,
   visible,
+  ...props
 }) => {
   return (
     <Button
@@ -47,6 +48,7 @@ const CCButton: FC<CCButtonProps> = ({
       tooltip={tooltip}
       tooltipOptions={tooltipOptions}
       visible={visible}
+      {...props}
     />
   );
 };

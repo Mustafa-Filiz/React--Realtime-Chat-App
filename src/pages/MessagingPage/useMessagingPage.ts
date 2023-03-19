@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePostData } from "../../data/hooks/usePostData";
 import { useSubscribeData } from "../../data/hooks/useSubscribeData";
 import { Message } from "../../data/models/Message";
@@ -15,7 +15,7 @@ export const useMessagingPage = () => {
     const message: Message = {
       id: uuidv4(),
       text,
-      timestamp: Date.now(),
+      createdAt: Date.now(),
     };
 
     await postData(`messages/${message.id}`, message);
@@ -26,7 +26,7 @@ export const useMessagingPage = () => {
       if (!data) return;
 
       const dataArr = Object.values(data).sort(
-        (a, b) => a.timestamp - b.timestamp
+        (a, b) => a.createdAt - b.createdAt
       );
 
       if (!dataArr.length) return;
@@ -36,7 +36,7 @@ export const useMessagingPage = () => {
     });
   };
 
-  const handleFinish = (values: any) => {
+  const handleSendMessage = (values: any) => {
     if (!values.message) return;
     sendMessage(values.message);
   };
@@ -52,5 +52,5 @@ export const useMessagingPage = () => {
     };
   }, [messages.length]);
 
-  return { messages, messageRef, sendMessage, handleFinish };
+  return { messages, messageRef, sendMessage, handleSendMessage };
 };

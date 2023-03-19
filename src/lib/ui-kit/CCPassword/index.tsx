@@ -7,37 +7,36 @@ import {
   PasswordProps,
 } from "primereact/password";
 
-interface CCPasswordProps {
-  appendTo: null | HTMLElement | "self";
-  children: ReactNode;
-  content: ReactNode | ((props: PasswordProps) => ReactNode);
-  feedback: boolean;
-  footer: ReactNode | ((props: PasswordProps) => ReactNode);
-  header: ReactNode | ((props: PasswordProps) => ReactNode);
-  icon: ReactNode | ((event: PasswordIconEvent) => ReactNode);
-  inputClassName: string;
-  inputId: string;
-  inputRef: Ref<HTMLInputElement>;
-  inputStyle: CSSProperties;
-  keyfilter: KeyFilterType;
-  mediumLabel: string;
-  mediumRegex: string;
-  panelClassName: string;
-  panelStyle: CSSProperties;
-  promptLabel: string;
-  strongLabel: string;
-  strongRegex: string;
-  toggleMask: boolean;
-  tooltip: string;
-  tooltipOptions: TooltipOptions;
-  weakLabel: string;
-  onHide: () => void;
-  onInput: (
+interface CCPasswordProps extends PasswordProps {
+  appendTo?: null | HTMLElement | "self";
+  children?: ReactNode;
+  content?: ReactNode | ((props: PasswordProps) => ReactNode);
+  feedback?: boolean;
+  footer?: ReactNode | ((props: PasswordProps) => ReactNode);
+  header?: ReactNode | ((props: PasswordProps) => ReactNode);
+  icon?: ReactNode | ((event: PasswordIconEvent) => ReactNode);
+  inputClassName?: string;
+  inputId?: string;
+  inputRef?: Ref<HTMLInputElement>;
+  inputStyle?: CSSProperties;
+  keyfilter?: KeyFilterType;
+  mediumLabel?: string;
+  mediumRegex?: string;
+  panelClassName?: string;
+  panelStyle?: CSSProperties;
+  promptLabel?: string;
+  strongLabel?: string;
+  strongRegex?: string;
+  toggleMask?: boolean;
+  tooltip?: string;
+  tooltipOptions?: TooltipOptions;
+  weakLabel?: string;
+  onHide?: () => void;
+  onInput?: (
     event: FormEvent<HTMLInputElement>,
     validatePattern: boolean
   ) => void;
-
-  onShow: () => void;
+  onShow?: () => void;
 }
 
 const CCPassword: FC<CCPasswordProps> = ({
@@ -67,6 +66,7 @@ const CCPassword: FC<CCPasswordProps> = ({
   onHide,
   onInput,
   onShow,
+  ...props
 }) => {
   return (
     <Password
@@ -96,6 +96,7 @@ const CCPassword: FC<CCPasswordProps> = ({
       onHide={onHide}
       onInput={onInput}
       onShow={onShow}
+      {...props}
     />
   );
 };
